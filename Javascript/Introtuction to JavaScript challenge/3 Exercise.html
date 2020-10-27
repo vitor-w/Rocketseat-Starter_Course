@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Introduction Challange -3-</title>
+    </head>
+    <body>
+        <script>
+            /* Third Exercise
+                Write a function that check within a vector for a specific skill and return true if there is and false if there 
+                is not.
+            
+                Example:
+                function temHabilidade(skills) {
+                    // código aqui
+                }
+                var skills = ["Javascript", "ReactJS", "React Native"];
+                temHabilidade(skills); // true ou false
+
+                Tip: To check if a vector contains a value, you can use the method indexOf.
+            */
+
+            function CheckForSkill(Skills) {
+                var SkillToCheck = "Javascript";
+                var SkillIndex = Skills.indexOf(SkillToCheck);
+
+                var HasSkill = SkillIndex != -1;
+
+                return HasSkill;
+            }
+
+            var skills = ["Javascript", "ReactJS", "React Native"];
+            console.log(CheckForSkill(skills));
+            
+        </script>
+    </body>
+</html>

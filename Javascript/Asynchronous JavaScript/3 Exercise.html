@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <title>Asynchronous JS Challange -1-</title>
+</head>
+
+<body>
+
+    <input type="text" name="user" value="diego3g"></input>
+    <button onclick="responseSearchUser()">Search</button>
+
+
+    <a target="_blank" name="userProfile">
+        <button>Profile</button>
+    </a>
+
+
+    <ul name="userRepos"></ul>
+
+    <script>
+        /*Third Exercise
+            With the result of second exercise, add a loading screen in place of the list while request is
+            happening 
+
+            <li>Loading...</li>
+
+            And add a error message in case GitHub user doesn't exist.
+
+            Tip: When a user doesn't exist, the request will fall in ".catch" with error 404.
+        */
+
+        const userRepos = document.querySelector('ul[name="userRepos"]');
+
+        const userProfile = document.querySelector('a[name="userProfile"]');
+        console.log(userProfile);
+
+        function applyLink(element, link) {
+            element.setAttribute("href", `${link}`);
+            console.log(link);
+        }
+
+        function loading(element) {
+            element.innerHTML = '';
+
+            loadingMessage = document.createTextNode("Loading...");
+
+            element.appendChild(loadingMessage);
+        }
+
+        function addList(List, items) {
+            List.innerHTML = '';
+
+            for (i = 0; i < items.length; i++) {
+                var item = document.createElement('li');
+                var repo = document.createTextNode(items[i]);
+
+                item.appendChild(repo);
+                List.appendChild(item);
+            }
+        }
+
+        function selectRepos(Repos) {
+            var ReposNames = [];
+
+            for (var i = 0; i < Repos.length; i++) {
+                ReposNames[i] = Repos[i].name;
+            }
+
+            return ReposNames;
+        }
+
+
+        var searchUser = function () {
+            return new Promise(function (resolve, reject) {
+                var userName = document.querySelector('input[name="user"]').value;
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', `https://api.github.com/users/${userName}/repos`);
+                xhr.send(null);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+
+                            const userInfo = [JSON.parse(xhr.responseText), `https://github.com/${userName}`];
+                            resolve(userInfo);
+                            
+                        } else {
+                            reject(xhr.status);
+                        }
+                    }
+                }
+            });
+        }
+
+        function responseSearchUser() {
+            loading(userRepos);
+            searchUser()
+                .then(function (response) {
+
+                    const repos = selectRepos(response[0]);
+
+                    applyLink(userProfile, response[1]);
+
+                    addList(userRepos, repos);
+
+                    console.log(response)
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+
+                    if (error == 404) {
+                        alert("Username doesn't exist")
+                    };
+                });
+        }
+    </script>
+</body>
+
+</html>

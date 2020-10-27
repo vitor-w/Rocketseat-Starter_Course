@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Asynchronous JS Challange -1-</title>
+    </head>
+    <body>
+
+        <input type="text" name="user" value="diego3g"></input>
+        <button onclick="responseSearchUser()">Search</button>
+
+        <ul name="userRepos"></ul>
+
+        <script>
+            /*Second Exercise
+                Create a screen with an input that receives a GitHub's username and after typed the username and click search button, the application has to search in GitHub's API
+                (following the URL bellow) the repositories data and show tem in screen:
+
+                Example URL: https://api.github.com/users/diego3g/repos
+
+                Just change "diego3g" for the username.
+
+                <input type="text" name="user">
+                <button onclick="">Search</button>
+
+                After filling input and search, the following list has to show:
+
+                <ul>
+                    <li>repo1</li>
+                    <li>repo2</li>
+                    <li>repo3</li>
+                    <li>repo4</li>
+                    <li>repo5</li>
+                </ul>
+
+            */
+
+            const userRepos = document.querySelector('ul[name="userRepos"]');
+            console.log(userRepos);
+
+            function addList (List, items) {
+                List.innerHTML = '';
+
+                for( i = 0; i < items.length; i++) {
+                    var item = document.createElement('li');
+                    var repo = document.createTextNode(items[i]);
+
+                    item.appendChild(repo);
+                    List.appendChild(item);
+                }
+            }
+
+            function selectRepos (Repos) {
+                var ReposNames = [];
+
+                for(var i = 0; i < Repos.length; i++) {
+                    ReposNames[i] = Repos[i].name;
+                }
+
+                return ReposNames;
+            }
+
+            
+
+            var searchUser = function() {
+                return new Promise(function(resolve, reject) {
+                    var userName = document.querySelector('input[name="user"]').value;
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', `https://api.github.com/users/${userName}/repos`);
+                    xhr.send(null);
+
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                resolve(JSON.parse(xhr.responseText));
+                            } else {
+                                reject('Error');
+                            }
+                        }
+                    }
+                });   
+            }
+
+            function responseSearchUser () {
+                searchUser()
+                .then(function(response) {
+                    const repos = selectRepos(response);
+                    console.log("TEST response before");
+                    addList(userRepos, repos);
+                    console.log("TEST response after");
+                })
+                .catch(function(error) {});
+            }
+        </script>
+    </body>
+</html>

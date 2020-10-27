@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Introduction Challange -1-</title>
+    </head>
+    <body>
+        <script>
+            //Function to check if answers/results are correct.
+                function CheckAnswer(Answer, NeededAnswer) {
+                    return Answer == NeededAnswer;
+                }
+
+            /*First Exercise
+            Create a function that with the given object:
+
+                var endereco = {
+                rua: "Rua dos pinheiros",
+                numero: 1293,
+                bairro: "Centro",
+                cidade: "São Paulo",
+                uf: "SP"
+                };
+
+            return the content:
+
+                O usuário mora em São Paulo / SP, no bairro Centro, na rua "Rua dos Pinheiros" 
+                com nº 1293.
+            */
+
+            function AddressRequest(info) {
+                var InfoSentence = "O usuário mora em " + info.cidade + ' / ' + info.uf + ", no bairro " + info.bairro +
+                    ", na rua " + '"' + info.rua + '"' + " com nº " + info.numero + '.';
+
+                return InfoSentence;
+            }
+
+            var endereco = {
+                rua: "Rua dos pinheiros",
+                numero: 1293,
+                bairro: "Centro",
+                cidade: "São Paulo",
+                uf: "SP"
+            };
+            var AddressInfo = AddressRequest(endereco);
+            var CorrectAnswer = 'O usuário mora em São Paulo / SP, no bairro Centro, na rua "Rua dos Pinheiros" com nº 1293.';
+            var Correction = CheckAnswer(AddressInfo, CorrectAnswer);
+
+            console.log(AddressInfo);
+            console.log(Correction);
+
+        </script>
+    </body>
+</html>

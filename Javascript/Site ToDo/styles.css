@@ -1,0 +1,7 @@
+#ListOfTodos {
+    display:inline-block;
+}
+
+#addSpace {
+    float: right;
+}

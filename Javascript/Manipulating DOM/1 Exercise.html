@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Modeling DOM Challenge -1-</title>
+    </head>
+    <body>
+
+        <button id="AddSquareButton" > Add a Square </button>
+        <script>
+            /* First Exercise
+                Create a button that when is clicked, generates a new element in screen that has a square red 
+                shape with 100px width and 100px height also the button needs to add that element 
+                every time when clicked.
+            */
+            
+            function GenerateSquare () {
+                var square = document.createElement('div');
+
+                square.setAttribute('class', 'square');
+
+                square.style.width = 100;
+                square.style.height = 100;
+                square.style.backgroundColor = 'red';
+
+                var bodyElement = document.querySelector('body');
+                bodyElement.appendChild(square);
+            }
+
+            var SquareGenerator = document.querySelector('button#AddSquareButton');
+            SquareGenerator.onclick = GenerateSquare;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Asynchronous JS Challange -1-</title>
+    </head>
+    <body>
+        <script>
+            /*First Exercise
+                Create a function that receive how old a user is then return a Promise that after 2 seconds it returns if the user is 
+                older than 18 years or younger. If the user is older than 18 the result must load in '.then' or if younger, the result 
+                must load in '.catch'.
+
+                function checaIdade(idade) {
+                    // Retornar uma promise
+                }
+                checaIdade(20)
+                    .then(function() {
+                        console.log("Maior que 18");
+                })
+                    .catch(function() {
+                        console.log("Menor que 18");
+                });
+            */
+
+            function checkAge (age) {
+                return new Promise(function(resolve, reject) {
+                    setTimeout(() => {
+                        if( age >= 18 ) {
+                            resolve('User is older than 18')
+                        }
+                        else {
+                            reject('User is younger than 18')
+                        }
+                    }, 2000)
+                });
+            }
+
+            var userAge = 15;
+
+            checkAge(userAge)
+                .then(function(response){
+                    console.log(response);
+                })
+                .catch(function(reject){
+                    console.log(reject);
+                });
+        </script>
+    </body>
+</html>

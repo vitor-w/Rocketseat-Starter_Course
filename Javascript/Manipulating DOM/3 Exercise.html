@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Modeling DOM Challenge -3-</title>
+    </head>
+    <body>
+
+        <ul id="List"></ul>
+
+        <script>
+            /* Third Exercise
+                From the given vector:
+                    var nomes = ["Diego", "Gabriel", "Lucas"];
+                
+                Fill a list (<ul>) in html with the items in the following format:
+
+                    ● Diego
+                    ● Gabriel
+                    ● Lucas
+            */
+
+            function FillList (items, List) { 
+                for(var item of items) {
+                    var itemList = document.createElement('li');
+                    var itemInfo = document.createTextNode(item);
+                    itemList.appendChild(itemInfo);
+                    
+                    List.appendChild(itemList);
+                }
+            }
+
+            var nomes = ["Diego", "Gabriel", "Lucas"];
+            var List = document.querySelector('ul#List');
+
+            FillList(nomes, List);
+
+        </script>
+    </body>
+</html>

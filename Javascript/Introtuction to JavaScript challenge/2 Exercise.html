@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Introduction Challange -2-</title>
+    </head>
+    <body>
+        <script>
+            /* Second Exercise
+                Create a function that given an interval (between x and y) show all even numbers.
+                Example:
+
+                function evens(x, y) {
+                // código aqui
+                }
+                evens(32, 321);
+            */
+
+            function GetEvenNumbers (x, y) {
+                var EvenNumbers = "Evens(";
+
+                if( x < y) {
+                        while( x <= y) {
+                        var rest = x % 2;
+                        if(rest === 0) {
+                            EvenNumbers += x + ", ";
+                        }
+                        x++;
+                    }
+                }
+                else {
+                    while( x >= y) {
+                        var rest = x % 2;
+                        if(rest === 0) {
+                            EvenNumbers += x + ", ";
+                        }
+                            x--;
+                    }
+                }
+
+                return EvenNumbers + ')';
+            }
+
+            var x = 32, y = 320;
+            var TheEvenNumbers = GetEvenNumbers(x, y);
+
+            console.log(TheEvenNumbers);
+        </script>
+    </body>
+</html>

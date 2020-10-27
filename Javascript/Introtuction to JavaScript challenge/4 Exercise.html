@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>Introduction Challenge -4-</title>
+    </head>
+    <body>
+        <script>
+            /* Fourth Exercise
+                Write a function that given years of study, returns how experienced the user is:
+
+                function experiencia(anos) {
+                    // código aqui
+                }
+
+                var anosEstudo = 7;
+                experiencia(anosEstudo);
+
+                // De 0-1 ano: Iniciante
+                // De 1-3 anos: Intermediário
+                // De 3-6 anos: Avançado
+                // De 7 acima: Jedi Master
+            */
+
+            function Experience(years) {
+                var ExperienceLevel;
+
+                if( years <= 1 ) {
+                        ExperienceLevel = "Iniciante";
+
+                } else if( years >= 1 && years <= 3 ){
+                        ExperienceLevel = "Intermediário";
+
+                } else if( years >= 3 && years <= 6 ){
+                        ExperienceLevel = "Avançado";
+
+                } else if( years >= 7 ){
+                        ExperienceLevel = "Jedi Master";
+                }
+
+                return ExperienceLevel;
+            }
+
+            var Level = Experience(7);
+
+            console.log(Level);
+
+        </script>
+    </body>
+</html>

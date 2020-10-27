@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Introduction Challenge -5-</title>
+    </head>
+    <body>
+        <script>
+            /* Fifth Exercise
+                Given the coming vector of objects:
+                    var usuarios = [
+                        {
+                        nome: "Diego",
+                        habilidades: ["Javascript", "ReactJS", "Redux"]
+                        },
+                        {
+                        nome: "Gabriel",
+                        habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+                        }
+                    ];
+
+                Write a function that makes the result:
+                    O Diego possui as habilidades: Javascript, ReactJS, Redux
+                    O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir
+
+                Tip: For run through a vector you can use the syntax "for...of" and for joint values of an array using
+                separators you can use "join".
+            */
+
+            function GetSkills (users) {
+                var usersInfo = "";
+
+                for(var user of users) {
+                    usersInfo += "O " + user.nome + " possui as habilidades: " + user.habilidades.join(", ") + '\n';
+                }
+
+                return usersInfo;
+            }
+
+            var usuarios = [
+                {
+                nome: "Diego",
+                habilidades: ["Javascript", "ReactJS", "Redux"]
+                },
+                {
+                nome: "Gabriel",
+                habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+                }
+            ];
+
+            var UserSkills = GetSkills(usuarios);
+            console.log(UserSkills);
+        </script>
+    </body>
+</html>
