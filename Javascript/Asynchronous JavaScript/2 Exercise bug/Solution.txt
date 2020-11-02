@@ -1,0 +1,6 @@
+I forgot to refer the methods (createElement() and createTextNode()) to document
+
+Like 
+document.createElement();
+
+document.createTextNode();
