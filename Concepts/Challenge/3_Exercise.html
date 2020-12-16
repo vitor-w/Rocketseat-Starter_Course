@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Third Exercise</title>
+</head>
+<body>
+    <script>
+        /*Third Exercise
+            Convert these functions in the following parts by Arrow functions:
+        */
+            /* 3.1
+
+            const arr = [1, 2, 3, 4, 5];
+
+            arr.map(function(item) {
+                return item + 10;
+            });
+            */
+
+            const arr = [1, 2, 3, 4, 5];
+
+            var result = arr.map( item => item + 10);
+
+            console.log('Exercise 3.1', result);
+
+            /* 3.2
+            // Tip: Use a const for the function
+
+            const user = { name: 'Diego', age: 23 };
+
+            function showAge(user) {
+                return user.age;
+            }
+
+            showAge(user);
+            */
+
+            const user = { name: 'Diego', age: 23 };
+
+            const showAge = user => user.age;
+
+            console.log('Exercise 3.2', showAge(user));
+
+
+
+            /* 3.3
+            // Tip: Use a const for the function
+
+            const name = "Diego";
+            const age = 23;
+
+            function showUser (name = 'Diego', age = 18) {
+                return { name, age };
+            }
+
+            showUser(name, age);
+            showUser(name);
+            */
+            
+            const name = "Diego";
+            const age = 23;
+
+            const showUser = (name = 'Diego', age = 18) => ({ name, age });
+
+            console.log('Exercise 3.3', showUser(name, age), showUser(name));
+
+            /* 3.4
+
+            const promise = function() {
+                return new Promise(function(resolve, reject) {
+                    return resolve();
+                })
+            }
+            */
+
+            const promise = () => new Promise((resolve, reject) => resolve());
+
+            console.log('Exercise 3.4', promise())
+    </script>
+</body>
+</html>

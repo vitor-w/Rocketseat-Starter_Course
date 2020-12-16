@@ -1,0 +1,3 @@
+yarn --cwd "C:\\Users\\vitor\\AppData\\Roaming\\Google\\Documents\\Evolving\\Coding\\Starter course\ES6+"
+
+yarn --cwd "C:\Users\vitor\AppData\Roaming\Google\Documents\Evolving\Coding\Starter course\ES6+\Concepts"

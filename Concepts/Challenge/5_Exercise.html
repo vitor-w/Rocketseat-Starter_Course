@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fifth Exercise</title>
+</head>
+<body>
+    <script>
+        /*Fifth Exercise
+
+            Using rest/spread(...) operators, do the following operations:
+
+        5.1 Rest
+           From array: const arr = [1, 2, 3, 4, 5, 6], define a variable 'x' to receive the first index value, then another variable 'y' to receive the rest of the array.
+
+                console.log(x); // 1
+                console.log(y); // [2, 3, 4, 5, 6]
+
+            Create a function that receives a lot of paramters then sum everyone:
+
+                // function sum...
+                console.log(sum(1, 2, 3, 4, 5, 6)); // 21
+                console.log(sum(1, 2)); // 3
+
+        */
+
+        const arr = [1, 2, 3, 4, 5, 6];
+
+        const [ x, ...y ] = arr;
+
+        function sum (...params) {
+            return params.reduce((item, next) => {
+                return item + next;
+            });
+        }
+
+        console.log('Exercise 5.1', 'x = ' + x, 'y = ' + y, '| sum ' + sum(1, 2, 3, 4, 5, 6) + ' and ' + 
+        sum(1, 2));
+
+        /*5.2
+
+            From an object and using spread:
+
+                const user = {
+                    name: 'Diego',
+                    age: 23,
+                    address: {
+                        city: 'Rio do Sul',
+                        state: 'SC',
+                        country: 'Brasil',
+                    }
+                };
+
+            Create a variable named 'user2' that contains all 'user' data but with 'name' == 'Gabriel'.
+
+            Create a variable named 'user3' that contains all 'user' data but with 'name' == 'Lontras'.
+        */
+
+        const user = {
+            name: 'Diego', 
+            age: 23,
+            address: {
+                city: 'Rio do Sul',
+                state: 'SC',
+                country: 'Brasil'
+            }
+        };
+
+        const user2 = { ...user, name: 'Gabriel' };
+
+        const user3 = { ...user, name: 'Lontras' };
+
+        console.log('Exercise 5.2 ' + '\n user2: ', user2, '\n user3: ', user3);
+    </script>
+</body>
+</html>

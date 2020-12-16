@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fourth Exercise</title>
+</head>
+<body>
+    <script>
+        /*Fourth Exercise
+            4.1 Simple destructuring 
+            from this object:
+                const enterprise = {
+                    name: 'Rocketseat',
+                    address: {
+                        city: 'Rio do Sul',
+                        state: 'SC',
+                    }
+                };
+            Use destructuring to transform the properties 'name', 'city' and state into variables, at the end it must be possible to do the following actions:
+
+                console.log(name); // Rocketseat
+                console.log(city); // Rio do Sul
+                console.log(state); // SC
+        */
+
+        const enterprise = {
+            name: 'Rocketseat',
+            address: {
+                city: 'Rio do Sul',
+                state: 'SC',
+            }
+        };
+
+        var { name, address: { city, state } } = enterprise;
+
+        console.log(name);
+        console.log(city);
+        console.log(state);
+
+        /*4.2 Paramters deconstruction
+            From the following object:
+
+                function mostraInfo(user) {
+                    return `${user.name} has ${user.age} years old.`;
+                }
+
+                mostraInfo({ name: 'Diego', age: 23 })
+            
+            Apply deconstruction in the function parameters to search separately for name and age of user, the function can just return:
+                
+                return `${name} has ${age} years old.`;
+
+        */
+
+        function mostraInfo({ name, age }) {
+            return `${name} is ${age} years old.`;
+        }
+
+        console.log('Exercise 4.2', mostraInfo({ name: 'Diego', age: 23 }));
+    </script>
+</body>
+</html>

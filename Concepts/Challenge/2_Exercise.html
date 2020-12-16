@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Second Exercise</title>
+</head>
+<body>
+    <script>
+        /*Second Exercise
+            From this array use the methods (map, reduce, filter and find):
+
+                const users = [
+                    { name: 'Diego', age: 23, enterprise: 'Rocketseat' },
+                    { name: 'Gabriel', age: 15, enterprise: 'Rocketseat' },
+                    { name: 'Lucas', age: 30, enterprise: 'Facebook' },
+
+                ];
+
+            2.1 Using mao()
+
+                create a variable that contains all users age.
+            
+            2.2 Using filter()
+
+                create a variable that just contains users that work in Rocketseat and older than 18 years:
+                [{ name: 'Diego', age: 23, enterprise: 'Rocketseat' }]
+
+            2.3 Using find()
+
+                create a variable that search for a user that works in Google: undefined
+            
+            2.4 Joining operations
+
+                multiply the age of all users by two than filter the user with max 50 years old:
+                    //result
+                        [
+                            { nome: 'Diego', idade: 46, empresa: 'Rocketseat' },
+                            { nome: 'Gabriel', idade: 30, empresa: 'Rocketseat' },
+                        ]
+        */
+
+        const users = [
+            { name: 'Diego', age: 23, enterprise: 'Rocketseat' },
+            { name: 'Gabriel', age: 15, enterprise: 'Rocketseat'},
+            { name: 'Lucas', age: 30, enterprise: 'Facebook'}
+        ];
+
+        //2.1
+
+            var usersAge = users.map(function(item) {
+                return item.age;
+            })
+
+            console.log('Exercise 2.1', usersAge);
+
+        //2.2
+
+            var usersRocketseat = users.filter(function(item) {
+                return item.enterprise == 'Rocketseat' && item.age > 18;
+            });
+
+            console.log('Exercise 2.2', usersRocketseat);
+        
+        //2.3
+            var usersGoogle = users.find(function(item) {
+                return item.enterprise == 'Google';
+            });
+
+            console.log('Exercise 2.3', usersGoogle);
+    </script>
+</body>
+</html>

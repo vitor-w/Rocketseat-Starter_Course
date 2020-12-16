@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Exercise</title>
+</head>
+<body>
+    <script>
+        /*First Exercise
+            To test your knowelegde about classes, create a class named 'Admin', this class must extend a second class named 'User'
+
+            The class 'User' must receive two parameters in method constructor, e-mail and password, then note those parameters in the class properties.
+            The 'Admin' class doesn't receive parameters but it needs to repass the parent class paramaters (e-mail and password) and mark a property 'admin'
+            as true in the class.
+
+            Now with your formed classes, add a method in "User" class called "isAdmin" that returns if user is admin or not, based if the property 'admin'
+            is 'true' or not.
+            
+            const User1 = new Usuario('email@test.com', 'password123');
+            const Adm1 = new Admin('email@test.com', 'password123');
+
+            console.log(User1.isAdmin()) // false
+            console.log(Adm1.isAdmin()) // true
+        */
+
+        class User {
+            constructor(email, password) {
+                this.email = email;
+                this.password = password;
+            }
+
+            isAdmin () {
+                return (this.admin == true);
+            }
+        }
+
+        class Admin extends User {
+            constructor() {
+                super();
+
+                this.admin = true;
+            }
+        }
+
+        const User1 = new User('email@test.com', 'password123');
+        const Adm1 = new Admin('email@test.com', 'password123');
+
+        console.log(User1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+#newToDo {
+    padding: 1rem;
+    margin: auto;
+
+    display: inline;
+    justify-content: center;
+}
+
+.contents {
+    margin: 0 20vw;
+}
+
+.contents h1 {
+    margin-bottom: 2rem;
+
+    font-size: 3rem;
+
+    text-align: center;
+}
+
+.content_button {
+    padding: 1rem;
+
+    font-size: 1.6rem;
+
+    background: rgba(0, 0, 0, 0);
+    border: 0.6rem solid rgb(30, 30, 30);
+    border-radius: 20rem;
+
+    transition: background 0.2s;
+
+}
+
+.content_button:hover{
+    padding: 1rem;
+
+    background: rgba(110, 110, 110, 0.15);
+    border: 0.6rem solid rgb(30, 30, 30);
+    border-radius: 20rem;
+
+}
